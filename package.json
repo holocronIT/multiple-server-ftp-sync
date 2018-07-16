@@ -1,0 +1,39 @@
+{
+  "name": "multiple-server-ftp-sync",
+  "version": "1.0.0",
+  "description": "Script to sync a local directory on a predefined ftp server list",
+  "main": "sync-ftp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holocronIT/multiple-server-ftp-sync.git"
+  },
+  "bin": {
+    "sync-ftp": "./sync-ftp.js"
+  },
+  "keywords": [
+    "ftp",
+    "sync",
+    "server",
+    "file",
+    "multiple",
+    "ftp"
+  ],
+  "author": "Andrea Pasqui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holocronIT/multiple-server-ftp-sync/issues"
+  },
+  "homepage": "https://github.com/holocronIT/multiple-server-ftp-sync#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "chalk": "^2.4.1",
+    "command-line-args": "^5.0.2",
+    "csv-reader": "^1.0.3",
+    "fs-extra": "^6.0.1",
+    "ftp": "^0.3.10",
+    "path": "^0.12.7"
+  }
+}
