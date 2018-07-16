@@ -27,6 +27,8 @@ var fileToUpload 				= [];
 var totalServerCount			= false;
 var tempTotalServerCount 		= 0;
 
+var isWin = process.platform === "win32";
+
 
 
 /*=====  End of VARIABLES & COSTANTS  ======*/
@@ -71,6 +73,11 @@ if( !fs.existsSync( processOptions.list ) ){
 	console.log(chalk.red('Server list not exist. Searching: '+processOptions.list));
 
 }
+
+if( isWin ){
+	processOptions.dir 	= processOptions.dir.replace('/', '\\' );
+}
+
 
 
 
@@ -125,7 +132,14 @@ inputStream.pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, tr
 
 				var stat 			= fs.lstatSync(file);
 				var remoteFilePath 	= file.replace(processOptions.dir, '' );
+
+
+				
 				remoteFilePath 		= row[4]+remoteFilePath;
+
+				if( isWin ){
+					remoteFilePath = remoteFilePath.replace(/\\/g, '/');
+				}
 
 				
 				if( stat.isDirectory() ){
